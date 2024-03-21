@@ -10,7 +10,7 @@
     network_mode: bridge
 
   backendimg:  
-    build: /root/Studentapp-3tier-DockerImage/Backend
+    build: /root/Studentapp-3tier-DockerImage/backend
     container_name: backend
     ports: 
        - 8080:8080
