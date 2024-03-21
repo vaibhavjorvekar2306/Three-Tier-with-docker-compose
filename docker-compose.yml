@@ -1,0 +1,19 @@
+version:  "3.8"
+
+services: 
+   backendimg:
+     build: /root/three-tier/backend
+     container_name: backend
+     depends_on: 
+          - "frontendimg"
+     ports: 
+       - "8080:8080"
+     network_mode: 
+      bridge
+    frontendimg:  
+     build:  /root/three-tier/frontend
+     container_name : frontend
+     ports :
+       - "80:80"
+     network_mode: 
+      bridge
