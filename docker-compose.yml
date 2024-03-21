@@ -1,19 +1,19 @@
-version:  "3.8"
 
-services: 
-   backendimg:
-     build: /root/three-tier/backend
-     container_name: backend
-     depends_on: 
-          - "frontendimg"
-     ports: 
-       - "8080:8080"
-     network_mode: 
-      bridge
-    frontendimg:  
-     build:  /root/three-tier/frontend
-     container_name : frontend
-     ports :
-       - "80:80"
-     network_mode: 
-      bridge
+ version:  "2.25.0"
+
+ services: 
+  frontendimg:
+    build: /root/Studentapp-3tier-DockerImage/frontend
+    container_name : frontend
+    ports: 
+       - 80:80
+    network_mode: bridge
+
+  backendimg:  
+    build: /root/Studentapp-3tier-DockerImage/Backend
+    container_name: backend
+    ports: 
+       - 8080:8080
+    network_mode: bridge
+    depends_on :
+      - "frontendimg"
